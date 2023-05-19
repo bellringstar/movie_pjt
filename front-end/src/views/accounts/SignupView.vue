@@ -10,24 +10,24 @@
       </div>
 
       <div class="input-container">
-        <label for="password">비밀번호:</label>
-        <input type="password" id="password" v-model="password" required>
+        <label for="password1">비밀번호:</label>
+        <input type="password" id="password1" v-model="password1" required>
       </div>
 
-      <!-- <div class="input-container">
-        <label for="password">비밀번호확인:</label>
-        <input type="password" id="password" v-model="password" required>
-      </div> -->
+      <div class="input-container">
+        <label for="password2">비밀번호확인:</label>
+        <input type="password" id="password2" v-model="password2" required>
+      </div>
 
       <div class="input-container">
         <label for="email">이메일:</label>
         <input type="email" id="email" v-model="email" required>
       </div>
 
-      <div>
+      <!-- <div>
         <label for="profile-image">프로필 이미지:</label>
-        <input type="file" id="profile-image" @change="handleFileChange">
-      </div>
+        <input type="file" id="profile-image" >
+      </div> -->
 
       <button type="submit">회원가입</button>
     </form>
@@ -35,30 +35,44 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
-      username: '',
-      password: '',
-      email: '',
-      profileImage: null,
+      username: "",
+      email: "",
+      password1: "",
+      password2: "",
+      // profileImage: null,
     };
   },
   methods: {
     signup() {
       const userData = {
-        username: this.username,
-        password: this.password,
-        email: this.email,
-        profileImage: this.profileImage, 
+        Username: this.username,
+        Password1: this.password1,
+        Password2: this.password2,
+        Email: this.email,
+        // profileImage: this.profileImage, 
       };
 
-      // axios.post('/api/signup', userData)
-      //   .then(response => {
-      //   })
-      //   .catch(error => {
-      //     console.error(error);
-      //   });
+      axios({
+        method:"post",
+        url:"http://127.0.0.1:8000/accounts/signup/",
+        data: {
+          'Username': this.username,
+          'Password1': this.password1,
+          'Password2': this.password2,
+          'Email': this.email,
+        }
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
       console.log(userData);
     }

@@ -4,7 +4,6 @@
       <img :src="poster" class="card-img-top">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title"><b>{{ movie.title }}</b></h5>
-        <!-- <h1>a</h1> -->
       </div>
    </div>
   </div>
