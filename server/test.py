@@ -1,3 +1,2 @@
-text = "fdasfdf"
-title = f"Which genre does the sentence below belong to:'Adventure', 'Fantasy', 'Animation', 'Drama', 'Horror', 'Action', 'Comedy', 'History', 'Western', 'Thriller', 'Crime', 'Documentary', 'SF', 'Mystery', 'Music', 'Romance', 'Family', 'War', 'TV Movie'. No need to say anything else, tell me top 3 genre name in order of highest probability by [genre1,genre2,genre3] \n context : {text}' \n"
-print(title)
+text = "오늘 우리 집"
+print("늘우" in text)
