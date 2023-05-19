@@ -1,7 +1,7 @@
 <template>
   <div class="col" >
     <div class="card h-100">
-      <!-- <img :src="poster" class="card-img-top"> -->
+      <img :src="poster" class="card-img-top">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title"><b>{{ movie.title }}</b></h5>
         <!-- <h1>a</h1> -->
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name:'MovieCard',
+  name:'MovieItem',
   props:{
     movie:Object
   },

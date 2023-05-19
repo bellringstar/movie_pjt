@@ -1,15 +1,54 @@
 <template>
   <div class="MyReview">
-    <h1>MyReview</h1>
+    <NavForm/>
+    <SearchFrom/>
+    <MyreviewItem v-for="review in reviews.slice(0,10)"
+      :key="review.id"
+      :review="review"
+      />
   </div>
 </template>
 
 <script>
-export default {
+import axios from 'axios'
+import NavForm from '@/components/NavForm.vue'
+import SearchFrom from '@/components/SearchFrom.vue'
 
+import MyreviewItem from '@/components/Profile/MyreviewItem.vue'
+
+
+export default {
+  components:{
+    NavForm,
+    SearchFrom,
+    MyreviewItem,
+  },
+  data() {
+    return {
+      reviews: []
+    }
+  },
+  mounted(){
+    this.get_reviews()
+  },
+  methods: {
+    get_reviews() {
+      axios.get('<int:movie_pk>/movie_review/') 
+        .then(res => {
+          this.reviews = res.data;
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+  }
 }
+
 </script>
 
-<style>
 
+<style scoped>
+.review-board {
+  margin-top: 20px;
+}
 </style>
