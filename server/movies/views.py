@@ -139,14 +139,15 @@ def movie_search(request):
     if genres_list:
         genres_list = [genre_dic[genre.lower().strip()] for genre in genres_list]
         print(genres_list)
-        embeddings = embedding.get_embedding(query)
+        embeddings = embedding.get_embedding(genres)
         vector_a = torch.tensor(embeddings)
         similarity = []
         for data in serializer.data:
-            if set(data['genres'])&set(genres_list):
+            if len(set(data['genres'])&set(genres_list)):
                 vector_b = torch.tensor(eval(data['overview_embedding']))
                 similarity_score = embedding.cosine_similarity(vector_a, vector_b)
-                similarity.append({data['movie_id']:similarity_score})
+                # similarity.append({data['movie_id']:similarity_score})
+                similarity.append({data['title']:similarity_score})
         sorted_data = sorted(similarity, key=lambda x: list(x.values())[0], reverse=True)
         
         return Response(sorted_data)

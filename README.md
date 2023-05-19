@@ -1,103 +1,155 @@
-# final-pjt
+# README
 
-## Getting started
+노션링크
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+https://gold-banjo-8d3.notion.site/README-7ec1fc916bac4f668e50edc872939d92
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
 
-## Add your files
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## 전체 일정 계획표
 
-```
-cd existing_repo
-git remote add origin https://lab.ssafy.com/dw3510/final-pjt.git
-git branch -M master
-git push -uf origin master
-```
+캘린더
 
-## Integrate with your tools
+![Untitled](README%207ec1fc916bac4f668e50edc872939d92/Untitled.png)
 
-- [ ] [Set up project integrations](https://lab.ssafy.com/dw3510/final-pjt/-/settings/integrations)
+타임라인
 
-## Collaborate with your team
+![Untitled](README%207ec1fc916bac4f668e50edc872939d92/Untitled%201.png)
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+- 데이터베이스
 
-## Test and Deploy
+## 와이어 프레임
 
-Use the built-in continuous integration in GitLab.
+![Untitled](README%207ec1fc916bac4f668e50edc872939d92/Untitled%202.png)
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+![Untitled](README%207ec1fc916bac4f668e50edc872939d92/Untitled%203.png)
 
-***
+## 컴포넌트 구조
 
-# Editing this README
+![Untitled](README%207ec1fc916bac4f668e50edc872939d92/Untitled%204.png)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## DB
 
-## Suggestions for a good README
+![Untitled](README%207ec1fc916bac4f668e50edc872939d92/Untitled%205.png)
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## API URL
 
-## Name
+![Untitled](README%207ec1fc916bac4f668e50edc872939d92/Untitled%206.png)
 
-Choose a self-explaining name for your project.
+## ---
 
-## Description
+# 0517
 
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## 오늘자 진행상황
 
-## Badges
+- [x] 프로젝트 전체 일정 계획
+- [x] 와이어 프레임 초안작성
+- [x] 컴포넌트 구조 설계
+- [x] DB 구조 설계
+- [x] API URL 설계
 
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## review
 
-## Visuals
+김현종
 
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+- 작업시 구체적인 디자인 요소들을 신중하게 고려하였습니다. 디자인의 세부 사항들, 예를 들면 컬러 팔레트, 타이포그래피, 레이아웃 등을 주의깊게 다루었습니다. 이러한 요소들은 웹사이트의 전체적인 품질과 사용자 경험에 큰 영향을 미치기 때문에 디자인 경험이 풍부한 팀원과 함께 작업을 진행해 일이 원활하게 진행되었습니다. 해당 팀원은 아이디어와 목표를 충실히 이해하고, 이를 구체적인 디자인 요소들로 담아냈습니다.
 
-## Installation
+- 프로젝트를 시작하기 전에 아이디어 회의를 진행하였고, 그 과정에서 체계적이고 창의적인 아이디어를 설계하고자 했습니다. 이는 프로젝트의 방향성을 명확하게 제시하는 데 큰 도움이 되었습니다. 이를 통해 구체적인 밑그림의 중요성을 깨달았습니다. 초기에 충분한 시간과 노력을 투자하여 아이디어를 구체화하고, 구조를 설계하는 것을 체감하면서 프로젝트에 있어서 전략적인 접근의 중요성을 깊이 이해하게 되었습니다.
 
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+이은경
 
-## Usage
+- 개발 프로젝트를 처음으로 진행하는 것에 대한 설렘을 느꼈습니다
+- DB를 설계하면서 생각보다 헷갈리고, 관계를 설정하는데에 어려움을 느꼈습니다. 
+  추가적인 공부가 필요할 거 같습니다.
+- 오늘자 계획이 순조롭게 진행되어 기획 단계가 빠르게 완료되었습니다.
+- 제가 할 수 있는 일을 최대한 열심히 해야겠다고 결심했습니다.
+- 해야할 일들을 명확하게 정리해서 문서로 잘 기록해두는 것이 필요하다고 생각합니다.
 
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+# ---
 
-## Support
+# 0518
 
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+## 오늘 할일계획
 
-## Roadmap
+- [x] frontend 페이지 틀 구성
+- [ ] 와이어프레임 수정하기
+- [ ] 컴포넌트구조 DB URL 정리하기
 
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## 오늘자 진행상황
 
-## Contributing
+- [x] 프로젝트 전체 일정 계획
 
-State if you are open to contributions and what your requirements are for accepting them.
+- [x] frontend 페이지 틀 구성
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+- 배우,감독 db 테이블 추가생성
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+- API를 통한 데이터 조작
 
-## Authors and acknowledgment
+- 브랜치 생성법을 알았다.
 
-Show your appreciation to those who have contributed to the project.
+- 브랜치 전환 `git checkout 브랜치이름`
 
-## License
+- front 서버 킬때 해야할일
 
-For open source projects, say how it is licensed.
+<aside>
+💡 cd vue-front-end
+npm run serve
 
-## Project status
+vue add vuex
 
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+vue add router
+
+npm i axios
+
+`npm i`
+
+</aside>
+
+- CSS를 분리해서 작성할지 , html 에 스타일로 같이쓸지 고민중
+  → html에 스타일로 쓰기로함
+- 리스트도 컴포넌트로 만들 필요가 있을까?
+  → 일단 지움
+
+# ---
+
+# 0519
+
+## 오늘 할일계획
+
+- [ ] 검색 알고리즘 완성
+- [ ] html페이지 구성 완료
+
+## 오늘자 진행상황
+
+### 프론트엔드상황
+
+### 백엔드 상황
+
+1. 검색알고리즘 계획
+   
+   1. openAI 의 embedding API를 사용해 제목과 줄거리의 벡터를 뽑아 DB의 MOVIE테이블에 추가
+   
+   2. 제목 벡터는 검색 시 잘못된영화 제목을 검색해도 코사인 유사도를 계산해 최대한 유사한 값을 보여주기 위해 사용
+   
+   3. 줄거리 벡터는 검색 시 제목이 아닌 어떤어떤 영화를 보고싶다 식의 쿼리가 왔을 때 코사인 유사도를 계산해 추천하기 위한 데이터
+   
+   4. 코사인 유사도 계산 방식의 선택
+      
+      1. Numpy를 사용한 계산 → 속도적으로 유리
+      2. sklearn라이브러리의 cosine_similarity 메서드 사용 → 대용량 데이터에는 아쉬움
+      3. pytoch라이브러리의 cosine similarity 메서드
+         → GPU활용 가능, 다차원 배열 계산
+   
+   5. 검색창을 채팅 형식으로 구현하기로 결정
+      
+       openAI의 API를 사용할 예정. 따라서 prompt를 작성해야한다.
+      
+      1. 영화 제목을 검색했는가
+         
+         1. 정확한 제목 검색 
+            → 유사도 판정을 통해 일정 유사도 이상이면 확정
+            → 기준 유사도 이상인 것이 없다면 해당 정보가 없다고 유사한 영화들 출력
+      
+      2. 영화 내용에 대한 검색을 통해 추천을 받고자 하는가
+         
+          → 줄거리와 코사인 유사도 계산을 통해 상위 3~4개의 영화 정보
