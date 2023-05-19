@@ -1,4 +1,6 @@
 from datetime import datetime
+from . import embedding
+import torch
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
@@ -37,7 +39,6 @@ def get_popularity_movie(request):
     data_list = serializer.data
     sorted_data = sorted(data_list, key=lambda x: x['popularity'], reverse=True)
     return Response(sorted_data[:30])
-
 
 
 @api_view(['GET'])
@@ -124,6 +125,30 @@ def userinfo(request, user_pk):
         
 @api_view(['POST'])
 def movie_search(request):
+    movies = get_list_or_404(Movie)
+    serializer = serializer = MovieListSerializer(movies, many=True)
     #request에는 사용자가 입력한 문장
-    # openai.api_key = os.getenv("OPENAI_API_KEY")
-    pass
+    query = request.data['query']
+    genres = embedding.find_genre(query)
+    genres_list= embedding.to_list(genres)
+    genre_dic = {'adventure' : 12,'fantasy':14,'animation':16, 'drama':18,
+                 'horror': 27, 'action':28, 'comedy':35, 'history':36, 'western':37,
+                 'thriller':53, 'crime':80, 'documentary':99, 'sf':878, 'mystery':9648,
+                 'music':10402, 'romance':10749, 'family':10751, 'war':10752, 'tv movie':10770}
+    print(genres_list)
+    if genres_list:
+        genres_list = [genre_dic[genre.lower().strip()] for genre in genres_list]
+        print(genres_list)
+        embeddings = embedding.get_embedding(query)
+        vector_a = torch.tensor(embeddings)
+        similarity = []
+        for data in serializer.data:
+            if set(data['genres'])&set(genres_list):
+                vector_b = torch.tensor(eval(data['overview_embedding']))
+                similarity_score = embedding.cosine_similarity(vector_a, vector_b)
+                similarity.append({data['movie_id']:similarity_score})
+        sorted_data = sorted(similarity, key=lambda x: list(x.values())[0], reverse=True)
+        
+        return Response(sorted_data)
+    else:
+        return Response([{'err':"다시 시도해 주세요 내용이 짧다면 좀 더 길게 써주세요"}])
