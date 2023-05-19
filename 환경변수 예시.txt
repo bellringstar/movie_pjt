@@ -1,0 +1,23 @@
+#pip install python-dotenv
+# from dotenv import load_dotenv
+# import os
+
+# # .env 파일에서 환경 변수 로드
+# load_dotenv()
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv('DB_NAME'),
+#         'USER': os.getenv('DB_USER'),
+#         'PASSWORD': os.getenv('DB_PASSWORD'),
+#         'HOST': os.getenv('DB_HOST'),
+#         'PORT': os.getenv('DB_PORT'),
+#     }
+# }
+
+DB_NAME=mydatabase
+DB_USER=Hbell
+DB_PASSWORD=qwer@1234
+DB_HOST=localhost
+DB_PORT=5432
