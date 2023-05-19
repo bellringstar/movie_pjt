@@ -3,7 +3,7 @@
     <h1>Detail</h1>
     <NavForm/>
     <SearchFrom/>
-    <DetailItem />
+    <DetailItem/>
     <SimilarItem/>
     <TagForm/>
     <YoutubeItem/>

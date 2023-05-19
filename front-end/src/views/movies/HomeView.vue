@@ -76,6 +76,7 @@ export default {
     },
     get_youtube() {
     const apiKey = process.env.VUE_APP_YOUTUBE_API_KEY;
+    
       axios({
           method: 'get',
           url: 'https://www.googleapis.com/youtube/v3/search',

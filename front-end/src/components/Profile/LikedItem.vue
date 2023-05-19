@@ -1,6 +1,13 @@
 <template>
   <div class="LikedItem">
-    <h1>LikedItem</h1>
+    <div class="col" >
+    <div class="card h-100">
+      <img :src="a" class="card-img-top">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title"><b>{{ movie.title }}</b></h5>
+      </div>
+   </div>
+  </div>
   </div>
 </template>
 

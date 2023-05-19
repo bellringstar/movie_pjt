@@ -22,14 +22,13 @@ export default {
     detail:Object
   },
   computed: {
-      bg_img() {
-        return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.movie.backdrop_path}`
-      },
-      pos_img() {
-        return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.movie.poster_path}`
-      }
-
+    bg_img() {
+      return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.movie.backdrop_path}`
+    },
+    pos_img() {
+      return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.movie.poster_path}`
     }
+  },
 }
 
 </script>

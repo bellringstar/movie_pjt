@@ -9,7 +9,6 @@
       <p class="user">작성자 : {{ review.user }}</p>
       <p class="liked">이 리뷰가 도움이 됐어요 {{ is_liked }}</p>
     </div>
-
   </div>
 </template>
 
