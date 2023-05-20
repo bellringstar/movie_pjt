@@ -28,6 +28,12 @@ export default {
       // 로그인 로직을 구현합니다.
       // this.username과 this.password 변수를 사용하여 서버로 인증 요청을 보낼 수 있습니다.
       // 성공 또는 실패에 따라 알맞은 동작을 수행합니다.
+      const username = this.username
+      const password = this.password
+      const payload = {
+        username, password
+      }
+      this.$store.dispatch('LOGIN', payload)
     }
   }
 };
