@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     youtube() {
-      return `https://www.youtube.com/embed/${this.videoId}`;
+      return `https://www.youtube.com/embed/${this.videoId}`
     },
       }
 }

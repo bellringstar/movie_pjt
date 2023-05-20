@@ -4,11 +4,10 @@
       <img :src="bg_img" alt="bg_img" class="bg_img">
       <img :src="pos_img" alt="pos_img" class="pos_img">
       <p class="title">{{ detail.title }}</p>
-      <p class="overview">{{ detail.overview }}</p>
+      <p class="overview">{{ detail.overview_kr }}</p>
       <div>
         <p class="release_date">{{ detail.release_date }}</p>
-        <p class="runtime">{{ detail.runtime }}</p>
-        <p class="adult">{{ detail.adult }}</p>
+        <p class="runtime">{{ detail.runtime }}</p> 
       </div>
     </div>
 
@@ -23,10 +22,17 @@ export default {
   },
   computed: {
     bg_img() {
+<<<<<<< HEAD
       return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.movie.backdrop_path}`
     },
     pos_img() {
       return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.movie.poster_path}`
+=======
+      return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.detail.backdrop_path}`
+    },
+    pos_img() {
+      return `https://image.tmdb.org/t/p/w600_and_h900_bestv2${this.detail.poster_path}`
+>>>>>>> front
     }
   },
 }

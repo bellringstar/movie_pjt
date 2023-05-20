@@ -3,7 +3,11 @@
     <h1>Detail</h1>
     <NavForm/>
     <SearchFrom/>
+<<<<<<< HEAD
     <DetailItem/>
+=======
+    <DetailItem :detail="this.detail"/>
+>>>>>>> front
     <SimilarItem/>
     <TagForm/>
     <YoutubeItem/>
@@ -35,12 +39,13 @@ export default {
 
   data(){
     return{
-      detail : [],
+      detail : {},
     }
   },
 
   created(){
-    this.get_detail
+    const movieIdx = this.$route.params.id
+    this.get_detail(movieIdx)
   },
 
   mounted(){
@@ -48,10 +53,10 @@ export default {
   },
 
   methods: {
-    get_detail(){
+    get_detail(movieIdx){
       axios({
         method:'get',
-        url: 'http://127.0.0.1:8000/api/movies/<int:pk>/' 
+        url: `http://127.0.0.1:8000/api/movies/${movieIdx}/`
       })
       .then((res)=>{
         console.log(res.data)

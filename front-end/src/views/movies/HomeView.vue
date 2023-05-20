@@ -1,11 +1,12 @@
 <template>
   <div class="Home">
-    <!-- <h1>Home</h1> -->
     <NavForm/>
     <SearchFrom/>
-    <div class="row row-cols-1 row-cols-md-3  g-4 center">
-      <MovieItem v-for="movie in movies.slice(0,10)"
-      :key="movie.id"
+    <div class="row row-cols-1 row-cols-md-3 g-4 center" 
+    v-for="movie in movies.slice(0,10)" 
+    :key="movie.id" 
+    @click="handle_click(movie.movie_id)">
+      <MovieItem
       :movie="movie"
       />
     </div><br><br>
@@ -19,6 +20,9 @@
 
     <div class="row row-cols-1 row-cols-md-3 g-4 center">
       <VideoItem :videoId="videoId" />
+      <!-- <VideoItem v-for="video in videos.slice(0,5)"
+      :key="video.id"
+      :videoId="videoId" /> -->
     </div>
 
 
@@ -71,11 +75,15 @@ export default {
       .then((res)=>{
         // console.log(res.data)
         this.movies = res.data
-        // console.log(this.movies)
       })
     },
     get_youtube() {
+<<<<<<< HEAD
     const apiKey = process.env.VUE_APP_YOUTUBE_API_KEY;
+=======
+    const apiKey = process.env.VUE_APP_YOUTUBE_API_KEY
+    console.log('aa',apiKey)
+>>>>>>> front
     
       axios({
           method: 'get',
@@ -95,6 +103,11 @@ export default {
       .catch(error => {
         console.log(error);
       });
+    },
+    handle_click(movie_id){
+      console.log('a')
+      this.$router.push(`/detail/${movie_id}`)
+
     }
   }
   }

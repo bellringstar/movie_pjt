@@ -22,7 +22,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/detail',
+    path: '/detail/:id',
     name: 'detail',
     component: DetailView
   },

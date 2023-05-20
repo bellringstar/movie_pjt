@@ -35,7 +35,11 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+import axios from 'axios'
+>>>>>>> front
 
 export default {
   data() {
@@ -45,36 +49,56 @@ export default {
       password1: "",
       password2: "",
       // profileImage: null,
+<<<<<<< HEAD
     };
+=======
+    }
+>>>>>>> front
   },
   methods: {
     signup() {
       const userData = {
+<<<<<<< HEAD
         Username: this.username,
         Password1: this.password1,
         Password2: this.password2,
         Email: this.email,
         // profileImage: this.profileImage, 
+=======
+        username: this.username,
+        password1: this.password1,
+        password2: this.password2,
+        email: this.email
+>>>>>>> front
       };
 
       axios({
         method:"post",
         url:"http://127.0.0.1:8000/accounts/signup/",
+<<<<<<< HEAD
         data: {
           'Username': this.username,
           'Password1': this.password1,
           'Password2': this.password2,
           'Email': this.email,
         }
+=======
+        data: userData
+>>>>>>> front
       })
       .then((res) => {
         console.log(res.data)
       })
+<<<<<<< HEAD
       .catch(error => {
         console.log(error);
       });
+=======
+      .catch(err => {
+        console.log('err', err.message)
+      })
+>>>>>>> front
 
-      console.log(userData);
     }
   }
 }
