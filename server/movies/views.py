@@ -4,8 +4,9 @@ import torch
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
+
 # Authentication Decorators
-# from rest_framework.decorators import authentication_classes
+from rest_framework.decorators import authentication_classes
 
 # permission Decorators
 from rest_framework.decorators import permission_classes
@@ -57,12 +58,14 @@ def movie_reviews(reqeust, movie_pk):
     serializer = ReviewListSerializer(reviews, many=True)
     return Response(serializer.data)
 
+# @permission_classes([IsAuthenticated])
 @api_view(['GET'])
 def user_reviews(request, user_pk):
     reviews = get_list_or_404(Review, user=user_pk)
     serializer = ReviewListSerializer(reviews, many=True)
     return Response(serializer.data)
 
+# @permission_classes([IsAuthenticated])
 @api_view(['PUT', 'DELETE'])
 def change_review(request,review_pk):
     review = get_object_or_404(Review, pk=review_pk)
@@ -75,13 +78,14 @@ def change_review(request,review_pk):
         review.delete()
         return Response(status.HTTP_204_NO_CONTENT)
     
-
+# @permission_classes([IsAuthenticated])
 @api_view(['GET'])
 def review_comment(request, review_pk):
     comment = get_list_or_404(Comment, review_id = review_pk)
     serializer = CommentSerializer(comment, many=True)
     return Response(serializer.data)
 
+# @permission_classes([IsAuthenticated])
 @api_view(['POST'])
 def create_review(request, movie_pk):
     movie = get_object_or_404(Movie, movie_id = movie_pk)
@@ -97,6 +101,7 @@ def tags(request):
     serializer = TagListSerializer(tags, many=True)
     return Response(serializer.data)
 
+# @permission_classes([IsAuthenticated])
 @api_view(['POST'])
 def add_tags(request, movie_pk):
     #request에 tag_id를 받아온다
@@ -110,6 +115,7 @@ def add_tags(request, movie_pk):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+# @permission_classes([IsAuthenticated])
 @api_view(['GET', 'PUT'])
 def userinfo(request, user_pk):
     user = get_object_or_404(get_user_model(), id=user_pk)
@@ -122,7 +128,8 @@ def userinfo(request, user_pk):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
-        
+
+# @permission_classes([IsAuthenticated])
 @api_view(['POST'])
 def movie_search(request):
     movies = get_list_or_404(Movie)
