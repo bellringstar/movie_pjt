@@ -19,12 +19,12 @@
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 center">
-      <VideoItem :videoId="videoId" />
-      <!-- <VideoItem v-for="video in videos.slice(0,5)"
-      :key="video.id"
-      :videoId="videoId" /> -->
+      <!-- <VideoItem :videoId="videoId"/> -->
+      <VideoItem v-for="video in videos"
+      :key="video.videoId"
+      :videoId="video.id.videoId"
+      :videoTitle="video.snippet.title"/>
     </div>
-
 
   </div>
 </template>
@@ -51,6 +51,7 @@ export default {
   data(){
     return{
       movies : [],
+      videos: [],
       videoTitle: '',
       videoId: '',
       query:'영화추천'
@@ -77,9 +78,9 @@ export default {
         this.movies = res.data
       })
     },
+
     get_youtube() {
     const apiKey = process.env.VUE_APP_YOUTUBE_API_KEY
-    console.log('aa',apiKey)
     
       axios({
           method: 'get',
@@ -93,8 +94,12 @@ export default {
         })
       .then((res) => {
         // console.log(res.data.items[0].id.videoId)
-        this.videoTitle = res.data.items[0].snippet.title
-        this.videoId = res.data.items[0].id.videoId
+        console.log(res.data.items)
+        // this.videoTitle = res.data.items[0].snippet.title
+        // this.videoId = res.data.items[0].id.videoId
+        this.videos = res.data.items.slice(0, 5)
+        //this.videoTitle = res.data.items.snippet.title
+        //this.videoId = res.data.items.id.videoId
       })
       .catch(error => {
         console.log(error);
@@ -103,7 +108,6 @@ export default {
     handle_click(movie_id){
       console.log('a')
       this.$router.push(`/detail/${movie_id}`)
-
     }
   }
   }

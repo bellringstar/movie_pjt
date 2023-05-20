@@ -7,6 +7,7 @@
     <SimilarItem/>
     <TagForm/>
     <YoutubeItem/>
+    <CreatereView/>
   </div>
 </template>
 
@@ -21,6 +22,8 @@ import TagForm from '@/components/Detail/TagForm.vue'
 import YoutubeItem from '@/components/Detail/YoutubeItem.vue'
 import DetailItem from '@/components/Detail/DetailItem.vue'
 
+import CreatereView from '@/components/Detail/CreatereView.vue'
+
 export default {
   name : 'detailView',
 
@@ -31,11 +34,13 @@ export default {
     SimilarItem,
     TagForm,
     YoutubeItem,
+    CreatereView,
   },
 
   data(){
     return{
       detail : {},
+      // review : {},
     }
   },
 
@@ -58,8 +63,10 @@ export default {
         console.log(res.data)
         this.detail = res.data
       })
-    }
-  }
+    },
+
+
+}
 }
 
 </script>

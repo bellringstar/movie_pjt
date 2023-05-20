@@ -35,7 +35,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 
 export default {
   data() {
@@ -49,9 +49,24 @@ export default {
   },
   methods: {
     signup() {
-      const username = this.username
-      const password1 = this.password1 
-      const password2 = this.password2
+      const userData = {
+        username: this.username,
+        password1: this.password1,
+        password2: this.password2,
+        email: this.email
+      };
+
+      axios({
+        method:"post",
+        url:"http://127.0.0.1:8000/accounts/signup/",
+        data: userData
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.log('err', err.message)
+      })
 
       const payload = {
         username, password1, password2

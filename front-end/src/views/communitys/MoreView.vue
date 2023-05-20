@@ -2,7 +2,7 @@
   <div class="MoReview">
     <NavForm/>
     <SearchFrom/>
-    <MoviereviewItem v-for="review in reviews.slice(0,10)"
+    <MoviereviewItem v-for="review in reviews"
       :key="review.id"
       :review="review"
       />
