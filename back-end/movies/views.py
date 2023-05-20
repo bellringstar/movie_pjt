@@ -52,20 +52,21 @@ def movie_detail(request, movie_pk):
 def movie_tag(request, movie_pk):
     pass
 
+@permission_classes([IsAuthenticated])
 @api_view(['GET'])
 def movie_reviews(reqeust, movie_pk):
     reviews = get_list_or_404(Review, movie_id=movie_pk)
     serializer = ReviewListSerializer(reviews, many=True)
     return Response(serializer.data)
 
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 @api_view(['GET'])
 def user_reviews(request, user_pk):
     reviews = get_list_or_404(Review, user=user_pk)
     serializer = ReviewListSerializer(reviews, many=True)
     return Response(serializer.data)
 
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 @api_view(['PUT', 'DELETE'])
 def change_review(request,review_pk):
     review = get_object_or_404(Review, pk=review_pk)
@@ -78,14 +79,14 @@ def change_review(request,review_pk):
         review.delete()
         return Response(status.HTTP_204_NO_CONTENT)
     
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 @api_view(['GET'])
 def review_comment(request, review_pk):
     comment = get_list_or_404(Comment, review_id = review_pk)
     serializer = CommentSerializer(comment, many=True)
     return Response(serializer.data)
 
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 @api_view(['POST'])
 def create_review(request, movie_pk):
     movie = get_object_or_404(Movie, movie_id = movie_pk)
@@ -101,7 +102,7 @@ def tags(request):
     serializer = TagListSerializer(tags, many=True)
     return Response(serializer.data)
 
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 @api_view(['POST'])
 def add_tags(request, movie_pk):
     #request에 tag_id를 받아온다
@@ -115,7 +116,7 @@ def add_tags(request, movie_pk):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 @api_view(['GET', 'PUT'])
 def userinfo(request, user_pk):
     user = get_object_or_404(get_user_model(), id=user_pk)
@@ -129,7 +130,7 @@ def userinfo(request, user_pk):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
 
-# @permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 @api_view(['POST'])
 def movie_search(request):
     movies = get_list_or_404(Movie)

@@ -1,9 +1,14 @@
 <template>
-  <input type="text" class="home_srh" placeholder="원하는 영화를 검색하세요."/>
+  <input v-bind="search" type="text" class="home_srh" placeholder="원하는 영화를 검색하세요."/>
 </template>
 
 <script>
 export default {
+  data(){
+    return{
+      search: null,
+    }
+  },
 
 }
 </script>

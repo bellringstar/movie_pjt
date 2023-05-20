@@ -78,12 +78,8 @@ export default {
       })
     },
     get_youtube() {
-<<<<<<< HEAD
-    const apiKey = process.env.VUE_APP_YOUTUBE_API_KEY;
-=======
     const apiKey = process.env.VUE_APP_YOUTUBE_API_KEY
     console.log('aa',apiKey)
->>>>>>> front
     
       axios({
           method: 'get',
@@ -96,7 +92,7 @@ export default {
           }
         })
       .then((res) => {
-        console.log(res.data.items[0].id.videoId)
+        // console.log(res.data.items[0].id.videoId)
         this.videoTitle = res.data.items[0].snippet.title
         this.videoId = res.data.items[0].id.videoId
       })

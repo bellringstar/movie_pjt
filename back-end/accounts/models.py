@@ -7,4 +7,4 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     self_introduction = models.TextField(blank=True)
     profile_image = models.ImageField(upload_to='images/', blank=True)
-    pass
+    

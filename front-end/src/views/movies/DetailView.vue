@@ -3,11 +3,7 @@
     <h1>Detail</h1>
     <NavForm/>
     <SearchFrom/>
-<<<<<<< HEAD
-    <DetailItem/>
-=======
     <DetailItem :detail="this.detail"/>
->>>>>>> front
     <SimilarItem/>
     <TagForm/>
     <YoutubeItem/>
