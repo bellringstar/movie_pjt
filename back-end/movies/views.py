@@ -23,7 +23,15 @@ from .models import Genre,Actor,Director,Movie,Tag,Review,Comment,TagMovieUser
 def movie_list(request):
     movies = get_list_or_404(Movie)
     serializer = MovieListSerializer(movies, many=True)
-    return Response(serializer.data)
+    movies_data = []
+    for movie in serializer.data:
+        data = {
+            'movie_id': movie['movie_id'],
+            'title': movie['title'],
+            'poster_path': movie['poster_path'],
+        }
+        movies_data.append(data)
+    return Response(movies_data)
 
 @api_view(['GET'])
 def get_recent_movie(request):
@@ -134,7 +142,7 @@ def userinfo(request, user_pk):
 @api_view(['POST'])
 def movie_search(request):
     movies = get_list_or_404(Movie)
-    serializer = serializer = MovieListSerializer(movies, many=True)
+    serializer = MovieListSerializer(movies, many=True)
     #request에는 사용자가 입력한 문장
     query = request.data['query']
     genres = embedding.find_genre(query)
