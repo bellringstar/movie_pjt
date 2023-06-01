@@ -1,17 +1,34 @@
 <template>
-  <div id="app">
+  <div id="app" data-app>
     <nav>
-      <router-link to="/">Home</router-link> | 
-      <!-- <router-link to="/detail">detail</router-link> | -->
-      <router-link to="/moreview">moreview</router-link> |
-      <router-link to="/myreview">myreview</router-link> |
-      <router-link to="/login">login</router-link> |
-      <router-link to="/profile">profile</router-link> |
-      <router-link to="/signup">signup</router-link> |
     </nav>
     <router-view/>
   </div>
 </template>
+
+<script>
+// const secretKey = process.env.VUE_APP_SECRET_KEY
+export default {
+
+
+
+  beforeDestroy() {
+    localStorage.removeItem('encryptedToken'); // 로컬 스토리지 아이템 삭제
+    localStorage.removeItem('encryptedUsername'); // 로컬 스토리지 아이템 삭제
+    localStorage.removeItem('encryptedId'); // 로컬 스토리지 아이템 삭제
+
+  },
+
+
+
+
+}
+
+
+
+
+</script>
+
 
 <style>
 #app {

@@ -33,6 +33,7 @@ class Movie(models.Model):
     popularity = models.IntegerField(blank=True)
     overview_embedding = models.TextField(blank=True)
     title_embedding = models.TextField(blank=True)
+    is_liked = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_movie')
 
 
 class Tag(models.Model):
@@ -43,13 +44,17 @@ class Review(models.Model):
     movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField()
-    is_liked = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_liked = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_user')
 
 
 class Comment(models.Model):
     review_id = models.ForeignKey(Review, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE) 
     content = models.TextField() 
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
 class TagMovieUser(models.Model):
@@ -57,3 +62,9 @@ class TagMovieUser(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
     
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['movie_id', 'user_id', 'tag_id'], name='unique_key')
+        ]
+    def __str__(self):
+        return f"({self.movie_id}, {self.user_id}, {self.tag_id})"

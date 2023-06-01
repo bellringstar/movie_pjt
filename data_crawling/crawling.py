@@ -2,6 +2,7 @@ import requests
 import json
 import openai
 from time import sleep
+import os
 
 auth = ""
 # url = "https://api.themoviedb.org/3/movie/popular?language=ko-KR&page=1" #전체 리스트
@@ -93,9 +94,15 @@ cnt = 0
 def create_data(page):
     global cnt
     movie_list = get_movies(page=page)
-
+    ban_word = ['처제', '엄마', '여친', '옥보단', '서비스', '섹스', '유혹', '스와핑', '밧줄', '꽃과 뱀', '밧줄', '고문', '유두', '기숙사', '美女縄地獄',
+                 '금단', '금욕', '사육', 'Slip', '젊은', '육보단', 'The Dallas Connection', 'Sechs Schwedinnen von der Tankstelle','금병매','이채담', '지스팟', '부부', '안마방', '여사장' ]
     for movie in movie_list['results']:
-        if not movie['adult']:
+        is_ok = True
+        for word in ban_word:
+            if word in movie['title']:
+                is_ok = False
+                break
+        if is_ok and movie['poster_path'] and movie['backdrop_path'] and movie['overview']:
             movie_id = movie['id']
             movie_detail = get_detail(movie_id)
             actors = get_actors(movie_id)
@@ -176,7 +183,7 @@ actor_data = []
 genres_data = []
 director_data = []
 
-for i in range(1, 35):
+for i in range(1, 60):
     create_data(i)
     sleep(20)
 
